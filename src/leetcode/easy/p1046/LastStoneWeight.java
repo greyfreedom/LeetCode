@@ -1,3 +1,5 @@
+package src.leetcode.easy.p1046;
+
 import java.util.Arrays;
 
 public class LastStoneWeight {

@@ -1,5 +1,6 @@
+package src.MianShiJinDian.p0101;
+
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 class IsUniqueLCCI {
