@@ -1,4 +1,4 @@
-package src.leetcode.easy.p34;
+package src.leetcode.medium.p34;
 
 import java.util.Arrays;
 
