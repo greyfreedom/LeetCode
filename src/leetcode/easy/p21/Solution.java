@@ -2,6 +2,7 @@ package src.leetcode.easy.p21;
 
 import src.common.ListNode;
 
+// 测试
 class Solution {
     public ListNode mergeTwoLists1(ListNode l1, ListNode l2) {
         ListNode head = null, tail = null;
