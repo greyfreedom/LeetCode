@@ -17,4 +17,17 @@ class Solution {
         }
         return null
     }
+
+    fun lowestCommonAncestor2(root: TreeNode?, p: TreeNode?, q: TreeNode?): TreeNode? {
+        if (root == null) {
+            return null
+        }
+        return if ((root.`val` >= p!!.`val` && root.`val` <= q!!.`val`) || (root.`val` >= q!!.`val` && root.`val` <= p.`val`)) {
+            root
+        } else if (root.`val` > p.`val` && root.`val` > q.`val`) {
+            lowestCommonAncestor2(root.left, p, q)
+        } else {
+            lowestCommonAncestor2(root.right, p, q)
+        }
+    }
 }
