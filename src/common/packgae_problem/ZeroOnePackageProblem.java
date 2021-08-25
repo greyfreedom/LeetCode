@@ -1,6 +1,7 @@
 package src.common.packgae_problem;
 
 public class ZeroOnePackageProblem {
+    // 使用 DP 数组实现 01背包问题
     public void testZeroOnePackageProblem(int[] weight, int[] value, int bagSize) {
         // dp[i][j] 表示 从 0 - i 物品中拿一个放入容量为 j 的背包中，能够获得的最大价值
         int[][] dp = new int[weight.length][bagSize + 1];
@@ -37,8 +38,28 @@ public class ZeroOnePackageProblem {
         }
     }
 
+    // 使用一维数组（滚动数组）实现
+    public void testZeroOnePackageProblem2(int[] weight, int[] value, int bagSize) {
+        // dp[i] 表示容量为 i 的背包，能够装下物品的最高价值
+        int[] dp = new int[bagSize + 1];
+
+        dp[0] = 0;
+
+        for (int i = 0; i < weight.length; i++) {
+            for (int j = bagSize; j >= weight[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
+            }
+        }
+        for (int i = 0; i < dp.length; i++) {
+            System.out.print(dp[i]);
+            System.out.print(", ");
+        }
+    }
+
+
     public static void main(String[] args) {
         ZeroOnePackageProblem problem = new ZeroOnePackageProblem();
         problem.testZeroOnePackageProblem(new int[]{1, 3, 4}, new int[]{15, 20, 30}, 4);
+        problem.testZeroOnePackageProblem2(new int[]{1, 3, 4}, new int[]{15, 20, 30}, 4);
     }
 }
