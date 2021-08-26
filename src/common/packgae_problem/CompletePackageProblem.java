@@ -25,16 +25,18 @@ public class CompletePackageProblem {
         for (int i = 0; i < weight.length; i++) {
             dp[i][0] = 0;
         }
+        // 初始化不一样
         for (int j = 0; j <= bagWeight; j++) {
             if (j >= weight[0]) {
-                dp[0][j] = value[0];
+                dp[0][j] = (j / weight[0]) * value[0];
             } else {
                 dp[0][j] = 0;
             }
         }
         for (int i = 1; i < weight.length; i++) {
-            for (int j = bagWeight; j >=weight[i]; j--) {
-                dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);
+            for (int j = weight[i]; j <= bagWeight; j++) {
+                // 状态转移方程不一样
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - weight[i]] + value[i]);
             }
         }
         for (int i = 0; i < dp.length; i++) {
