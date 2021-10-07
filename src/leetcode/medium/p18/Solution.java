@@ -12,9 +12,6 @@ class Solution {
         }
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > target) {
-                return result;
-            }
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
